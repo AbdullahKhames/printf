@@ -1,58 +1,40 @@
-#include <unistd.h>
 #include "main.h"
 
 /**
- * _printf - prints output according to a format.
- * @format: character string.
- * Return: number of characters printed (excluding null byte used to end output to strings)
+ * my_printf - produces output according to a format
+ * @format: character string containing zero or more directives
+ * Return: the number of characters printed
  */
-int _printf(const char *format, ...)
+int my_printf(const char *format, ...)
 {
+unsigned int f = 0, count = 0;
 va_list args;
-int printed_chars = 0;
 
 va_start(args, format);
-
-while (*format != '\0')
+for (; format[f] != '\0'; f++)
 {
-if (*format == '%')
+if (format[f] != '%')
 {
-format++;
-if (*format == 'c')
-{
-char c = va_arg(args, int);
-printed_chars += write(1, &c, 1);
+_putchar(format[f]);
+count++;
 }
-else if (*format == 's')
+else if (format[f + 1] == 'c')
 {
-char *str = va_arg(args, char *);
-if (str == NULL)
-str = "(null)";
-while (*str != '\0')
+_putchar(va_arg(args, int));
+count++;
+f++;
+}
+else if (format[f + 1] == 's')
 {
-printed_chars += write(1, str, 1);
-str++;
+count += handle_string(va_arg(args, char *));
+f++;
+}
+else if (format[f] == '%')
+{
+_putchar('%');
+count++;
 }
 }
-else if (*format == '%')
-{
-printed_chars += write(1, "%", 1);
-}
-else if (*format == '\0')
-{
 va_end(args);
-return (-1);
-}
-format++;
-}
-else
-{
-printed_chars += write(1, format, 1);
-format++;
-}
-}
-
-va_end(args);
-
-return (printed_chars);
+return (count);
 }
