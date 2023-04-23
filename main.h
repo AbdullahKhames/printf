@@ -37,5 +37,6 @@ int my_printf(const char *format, ...);
 int _printf(const char *format, ...);
 int _putchar(char c);
 int handle_string(char *s);
+int (*print_handler(char c))(va_list, flags_type *);
 int _puts(char *s);
 #endif
