@@ -1,4 +1,6 @@
+#include <stdlib.h>
 #include "main.h"
+#include <stdio.h>
 
 /**
  * _printf - formatted output conversion and print data.
