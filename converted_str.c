@@ -11,7 +11,7 @@ char *converted_str(unsigned long int number, int base, int lowercase)
 {
 	static char buff[100];
 	static char *cptr;
-	char * bu;
+	char *bu;
 
 	cptr = (lowercase) ? "0123456789abcdef" : "0123456789ABCDEF";
 
@@ -20,9 +20,9 @@ char *converted_str(unsigned long int number, int base, int lowercase)
 
 	do {
 
-		*--bu = cptr[number %base];
+		*--bu = cptr[number % base];
 		number /= base;
-	}while (number != 0);
+	} while (number != 0);
 
 	return (bu);
 }
