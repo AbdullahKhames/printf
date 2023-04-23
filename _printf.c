@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdarg.h>
 #include "main.h"
 
 /**
@@ -8,34 +6,46 @@
  *
  * Return: num of characters printed.
  */
-int _printf(const char *format, ...) {
+int _printf(const char *format, ...)
+{
 int count = 0;
 va_list args;
 va_start(args, format);
-while (*format != '\0') {
-if (*format == '%') {
+
+while (*format != '\0')
+{
+if (*format == '%')
+{
 format++;
-if (*format == 'c') {
+if (*format == 'c')
+{
 int c = va_arg(args, int);
-putchar(c);
+write(1, &c, sizeof(c));
 count++;
-} else if (*format == 's') {
+}
+else if (*format == 's')
+{
 char *s = va_arg(args, char *);
-while (*s != '\0') {
-putchar(*s);
+while (*s != '\0')
+{
+write(1, s, sizeof(char));
 s++;
 count++;
 }
-} else if (*format == '%') {
-putchar('%');
+}
+else if (*format == '%')
+{
+write(1, "%", sizeof(char));
 count++;
 }
-} else {
-putchar(*format);
+}
+else
+{
+write(1, format, sizeof(char));
 count++;
 }
 format++;
 }
 va_end(args);
-return count;
+return (count);
 }
