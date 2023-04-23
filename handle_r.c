@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_bigS - Non printable char
+ * handle_big_string - Non printable char
  * (0 < ASCII value < 32 or >= 127) are
  * printed this way: \x, followed by the ASCII code
  * value in hexa (upper case - always 2 characters)
@@ -64,7 +64,7 @@ return (x);
 /**
  * handle_rot13 - prints a string using rot13
  * @l: list argu from _printf
- * @f: pointer to the struct 
+ * @f: pointer to the struct
  * if a flag is passed to _printf
  * Return: length of the printed str
  */
@@ -96,7 +96,7 @@ return (j);
 /**
  * handle_percent - prints a percent
  * @l: va_list arguments from _printf
- * @f: point to the struct flags 
+ * @f: point to the struct flags
  * Return: num of char prin
  */
 int handle_percent(va_list l, flags_t *f)
