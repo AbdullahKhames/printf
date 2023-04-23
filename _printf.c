@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include "main.h"
+
 /**
  * _printf - prints output according to a format.
  * @format: character string.
@@ -9,7 +10,9 @@ int _printf(const char *format, ...)
 {
 va_list args;
 int printed_chars = 0;
+
 va_start(args, format);
+
 while (*format != '\0')
 {
 if (*format == '%')
@@ -48,6 +51,8 @@ printed_chars += write(1, format, 1);
 format++;
 }
 }
+
 va_end(args);
+
 return (printed_chars);
 }
