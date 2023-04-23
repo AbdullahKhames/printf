@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_hex - prints a number in hexadecimal base,
+ * handle_hex - prints a number in hexadecimal base,
  * in lowercase
  * @args: va_list arguments from _printf
  * @flags: pointer to the struct flags that determines
@@ -10,7 +10,7 @@
  * number into the correct base and returns it as a string
  * Return: the number of char printed
  */
-int print_hex(va_list args, flags_t *flags)
+int handle_hex(va_list args, flags_t *flags)
 {
 unsigned int num = va_arg(args, unsigned int);
 char *str = converted_str(num, 16, 1);
@@ -23,7 +23,7 @@ return (count);
 }
 
 /**
- * print_hex_big - prints a number in hexadecimal base,
+ * handle_big_hex - prints a number in hexadecimal base,
  * in uppercase
  * @args: va_list arguments from _printf
  * @flags: pointer to the struct that determines
@@ -32,7 +32,7 @@ return (count);
  * number into the correct base and returns it as a string
  * Return: the number of char printed
  */
-int print_hex_big(va_list args, flags_t *flags)
+int handle_big_hex(va_list args, flags_t *flags)
 {
 unsigned int num = va_arg(args, unsigned int);
 char *str = converted_str(num, 16, 0);
@@ -45,7 +45,7 @@ return (count);
 }
 
 /**
- * print_binary - prints a number in base 2
+ * handle_binary - prints a number in base 2
  * @args: va_list arguments from _printf
  * @flags: pointer to the struct that determines
  * if a flag is passed to _printf
@@ -53,7 +53,7 @@ return (count);
  * number into the correct base and returns it as a string
  * Return: the number of char printed
  */
-int print_binary(va_list args, flags_t *flags)
+int handle_binary(va_list args, flags_t *flags)
 {
 unsigned int num = va_arg(args, unsigned int);
 char *str = converted_str(num, 2, 0);
@@ -63,7 +63,7 @@ return (_puts(str));
 }
 
 /**
- * print_octal - prints a number in base 8
+ * handle_octal - prints a number in base 8
  * @args: va_list arguments from _printf
  * @flags: pointer to the struct that determines
  * if a flag is passed to _printf
@@ -71,7 +71,7 @@ return (_puts(str));
  * number into the correct base and returns it as a string
  * Return: the number of char printed
  */
-int print_octal(va_list args, flags_t *flags)
+int handle_octal(va_list args, flags_t *flags)
 {
 unsigned int num = va_arg(args, unsigned int);
 char *str = converted_str(num, 8, 0);
