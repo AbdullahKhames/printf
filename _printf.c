@@ -41,7 +41,7 @@ count++;
 }
 else
 {
-write(1, format, 1);
+write(1, *format, 1);
 count++;
 }
 format++;
