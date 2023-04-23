@@ -9,20 +9,20 @@
  */
 char *converted_str(unsigned long int number, int base, int lowercase)
 {
-	static char buff[100];
-	static char *cptr;
-	char *bu;
+	static char buff[50];
+	static char *rep;
+	char *cptr;
 
-	cptr = (lowercase) ? "0123456789abcdef" : "0123456789ABCDEF";
+	rep = (lowercase) ? "0123456789abcdef" : "0123456789ABCDEF";
 
-	bu = &buff[99];
-	*bu = '\0';
+	cptr = &buff[49];
+	*cptr = '\0';
 
 	do {
 
-		*--bu = cptr[number % base];
+		*--cptr = rep[number % base];
 		number /= base;
 	} while (number != 0);
 
-	return (bu);
+	return (cptr);
 }

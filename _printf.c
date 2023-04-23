@@ -38,7 +38,6 @@ int _printf(const char *format, ...)
 		} else
 			counter += _putchar(*cptr);
 	}
-	_putchar(-1);
 	va_end(args);
 	return (counter);
 }
