@@ -1,5 +1,6 @@
 #include <stdarg.h>
 
+<<<<<<< HEAD
 /**
  * handle_int - Handles the conversion specifier for integers
  * @args: The list of arguments
@@ -34,4 +35,27 @@ x++;
 }
 
 return (x);
+=======
+int handle_int(va_list args, flags *fl)
+{
+	int x = va_arg(args, int)
 }
+
+int counter(int num)
+{
+	unsigned int x =0, y;
+	
+	if (num < 0)
+		y = num * -1;
+	else
+		y = num;
+
+	while (y != 0)
+	{
+		y /= 10;
+		x++;
+	}
+	return (x);
+>>>>>>> baa166539fc5752b431c845b71f7f7b1ce605d0c
+}
+
