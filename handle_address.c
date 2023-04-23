@@ -7,7 +7,7 @@
  * if a flag passed to _printf
  * Return: number of char print
  */
-int handle_address(va_list ap_list, flags_type *f)
+int handle_address(va_list ap_list, flags_t *f)
 {
 char *hex_str;
 unsigned long int addr = va_arg(ap_list, unsigned long int);
