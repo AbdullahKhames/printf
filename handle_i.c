@@ -3,18 +3,18 @@
 /**
  * handle_int - prints an int
  * @l: va_list to args from _printf
- * @q: pointer to the struct flags determine
+ * @f: pointer to the struct flags determine
  * if a flag _printf
  * Return: num of char print
  */
-int handle_int(va_list l, flags_t *q)
+int handle_int(va_list l, flags_t *f)
 {
-int d = va_arg(l, int);
-int res = count_digit(d);
+int f = va_arg(l, int);
+int res = count_digit(f);
 
-if (q->space == 1 && q->plus == 0 && d >= 0)
+if (f->space == 1 && f->plus == 0 && f >= 0)
 res += _putchar(' ');
-if (q->plus == 1 && d >= 0)
+if (f->plus == 1 && d >= 0)
 res += _putchar('+');
 if (d <= 0)
 res++;

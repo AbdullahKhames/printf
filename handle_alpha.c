@@ -12,9 +12,11 @@ int handle_string(va_list args, flags_t *f)
 {
 char *s = va_arg(args, char *);
 
+(void)f;
+
 if (!s)
 s = "(null)";
-(void)f;
+
 return (_puts(s));
 }
 
