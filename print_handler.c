@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_handler - function to match the char input with the functioin to get called
+ * print_handler - function to match the char input
  * @sa: char input
  * Return: a pointer to the matching function
  */
@@ -18,7 +18,7 @@ int (*print_handler(char sa))(va_list, flags_type *)
 		{'c', handle_char},
 		{'s', handle_string},
 		{'S', handle_big_string},
-		{'u', handle_unsigned},	
+		{'u', handle_unsigned},
 		{'%', handle_percent},
 		{'p', handle_address},
 		{'r', handle_rev},
@@ -31,7 +31,7 @@ int (*print_handler(char sa))(va_list, flags_type *)
 
 	for (; i < f; i++)
 	{
-		if (functions[i].c = sa)
+		if (functions[i].c == sa)
 			return (functions[i].f);
 	}
 	return (NULL);
