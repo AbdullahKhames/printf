@@ -1,10 +1,8 @@
 #include <unistd.h>
 #include "main.h"
-
 /**
  * _printf - prints output according to a format.
  * @format: character string.
- *
  * Return: number of characters printed (excluding null byte used to end output to strings)
  */
 int _printf(const char *format, ...)
@@ -39,6 +37,7 @@ printed_chars += write(1, "%", 1);
 }
 else if (*format == '\0')
 {
+va_end(args);
 return (-1);
 }
 format++;
