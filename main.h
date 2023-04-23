@@ -39,14 +39,14 @@ void handle_number(int n);
 int handle_unsigned(va_list args, flags_t *f);
 int count_digit(int i);
 int handle_hex(va_list args, flags_t *f);
-int handle_hex_big(va_list args, flags_t *f);
+int handle_big_hex(va_list args, flags_t *f);
 int handle_binary(va_list args, flags_t *f);
 int handle_octal(va_list args, flags_t *f);
 int handle_string(va_list args, flags_t *f);
 int handle_char(va_list args, flags_t *f);
 int handle_rot13(va_list args, flags_t *f);
 int handle_rev(va_list args, flags_t *f);
-int handle_bigS(va_list args, flags_t *f);
+int handle_big_string(va_list args, flags_t *f);
 int handle_address(va_list args, flags_t *f);
 int handle_percent(va_list args, flags_t *f);
 #endif
