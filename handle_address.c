@@ -13,6 +13,8 @@ char *hex_str;
 unsigned long int addr = va_arg(ap_list, unsigned long int);
 int char_count = 0;
 
+(void)f;
+
 if (!addr)
 return (_puts("(nil)"));
 
