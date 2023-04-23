@@ -21,7 +21,6 @@ return (_puts("(nil)"));
 hex_str = converted_str(addr, 16, 1);
 char_count += _puts("0x");
 char_count += _puts(hex_str);
-free(hex_str);
 
 return (char_count);
 }
