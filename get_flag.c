@@ -13,19 +13,19 @@ int get_flag(char cha, flags_t *f)
 	{
 		case ' ':
 			f->space = 1;
-			i = 1;
+			index = 1;
 			break;
 
 		case '#':
 			f->hash = 1;
-			i = 1;
+			index = 1;
 			break;
 
 		case '+':
 			f->plus = 1;
-			i = 1;
+			index = 1;
 			break;
 
 	}
-	return (i);
+	return (index);
 }

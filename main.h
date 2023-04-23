@@ -27,7 +27,7 @@ typedef struct printHandler
 {
 	char c;
 	int (*f)(va_list ap, flags_t *f);
-} ph;
+} printer;
 int _printf(const char *format, ...);
 int _putchar(char c);
 int _puts(char *str);
