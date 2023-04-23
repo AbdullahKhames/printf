@@ -10,7 +10,7 @@
  * if a flag is passed to _printf
  * Return: num of char printed
  */
-int print_bigS(va_list l, flags_t *f)
+int handle_big_string(va_list l, flags_t *f)
 {
 int x, count = 0;
 char *res;
@@ -26,7 +26,7 @@ if (s[x] > 0 && (s[x] < 32 || s[x] >= 127))
 {
 _puts("\\x");
 count += 2;
-res = convert(s[x], 16, 0);
+res = converted_str(s[x], 16, 0);
 if (!res[1])
 count += _putchar('0');
 count += _puts(res);
@@ -38,13 +38,13 @@ return (count);
 }
 
 /**
- * print_rev - prints a string in reverse
+ * handle_rev - prints a string in reverse
  * @l: argument from _printf
  * @f: pointer to the struct flags
  * if a flag is passed to _printf
  * Return: length of printed str
  */
-int print_rev(va_list l, flags_t *f)
+int handle_rev(va_list l, flags_t *f)
 {
 int x = 0, j;
 char *s = va_arg(l, char *);
@@ -62,13 +62,13 @@ return (x);
 }
 
 /**
- * print_rot13 - prints a string using rot13
+ * handle_rot13 - prints a string using rot13
  * @l: list argu from _printf
  * @f: pointer to the struct 
  * if a flag is passed to _printf
  * Return: length of the printed str
  */
-int print_rot13(va_list l, flags_t *f)
+int handle_rot13(va_list l, flags_t *f)
 {
 int x, j;
 char rot13[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -94,12 +94,12 @@ return (j);
 }
 
 /**
- * print_percent - prints a percent
+ * handle_percent - prints a percent
  * @l: va_list arguments from _printf
  * @f: point to the struct flags 
  * Return: num of char prin
  */
-int print_percent(va_list l, flags_t *f)
+int handle_percent(va_list l, flags_t *f)
 {
 (void)l;
 (void)f;
