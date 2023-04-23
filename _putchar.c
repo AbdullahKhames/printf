@@ -8,7 +8,7 @@
 
 int _putchar(char c)
 {
-	return (write(1 ,&c, 1));
+return (write(1, &c, 1));
 }
 
 /**
@@ -18,6 +18,16 @@ int _putchar(char c)
  */
 int _puts(char *s)
 {
+<<<<<<< HEAD
+int i = 0;
+
+while (s[i] != '\0')
+{
+_putchar(s[i]);
+i++;
+}
+return (i);
+=======
 	int i = 0;
 
 	while (s[i] != '\0')
@@ -25,4 +35,5 @@ int _puts(char *s)
 		_putchar(s[i]);
 	}
 	return (i);
+>>>>>>> baa166539fc5752b431c845b71f7f7b1ce605d0c
 }
