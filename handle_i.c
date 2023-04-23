@@ -9,16 +9,16 @@
  */
 int handle_int(va_list l, flags_t *f)
 {
-int f = va_arg(l, int);
-int res = count_digit(f);
+int q = va_arg(l, int);
+int res = count_digit(q);
 
-if (f->space == 1 && f->plus == 0 && f >= 0)
+if (f->space == 1 && f->plus == 0 && q >= 0)
 res += _putchar(' ');
-if (f->plus == 1 && d >= 0)
+if (f->plus == 1 && q >= 0)
 res += _putchar('+');
-if (d <= 0)
+if (q <= 0)
 res++;
-handle_number(d);
+handle_number(q);
 return (res);
 }
 
