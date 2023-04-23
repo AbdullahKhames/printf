@@ -5,23 +5,23 @@
  * @f: pointer to functrion
  * Return: int
  */
-int get_flag(char cha, flags_type *f)
+int get_flag(char cha, flags_t *f)
 {
 	int index = 0;
 
 	switch (cha)
 	{
-		case ' ';
+		case ' ':
 			f->space = 1;
 			i = 1;
 			break;
 
-		case '#';
+		case '#':
 			f->hash = 1;
 			i = 1;
 			break;
 
-		case '+';
+		case '+':
 			f->plus = 1;
 			i = 1;
 			break;

@@ -6,7 +6,7 @@
  * Return: a pointer to the matching function
  */
 
-int (*print_handler(char sa))(va_list, flags_type *)
+int (*print_handler(char sa))(va_list, flags_t *)
 {
 	printer functions[] = {
 		{'i', handle_int},
@@ -36,4 +36,4 @@ int (*print_handler(char sa))(va_list, flags_type *)
 	}
 	return (NULL);
 }
-i
+

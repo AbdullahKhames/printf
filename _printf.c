@@ -9,13 +9,13 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int (*func)(va_list, flags_type *);
-	flags_type flags = {0, 0, 0};
+	int (*func)(va_list, flags_t *);
+	flags_t flags = {0, 0, 0};
 	const char *cptr;
 	int counter = 0;
 
 	va_start(args, format);
-	if (!format || (format[0] == '%' && !foramt[1]))
+	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
@@ -40,5 +40,5 @@ int _printf(const char *format, ...)
 	}
 	_putchar(-1);
 	va_end(args);
-	return (count);
+	return (counter);
 }

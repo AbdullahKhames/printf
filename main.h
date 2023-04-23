@@ -1,19 +1,14 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-/*includng C Standard Lib Headers*/
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdio.h>
 #include <stdlib.h>
-
-/*structs*/
-
+#include <stdarg.h>
 /**
- * struct flag - struct for flags
- * @plus: +
- * @space: ' '
- * @hash: #
+ * struct flags - struct containing flags to "turn on"
+ * when a flag specifier is passed to _handlef()
+ * @plus: flag for the '+' character
+ * @space: flag for the ' ' character
+ * @hash: flag for the '#' character
  */
 typedef struct flags
 {
@@ -23,37 +18,35 @@ typedef struct flags
 } flags_t;
 
 /**
- * struct handleprint - struct
- * @c: character
- * @f: pointer to function
+ * struct printHandler - struct to choose the right function depending
+ * on the format specifier passed to _printf()
+ * @c: format specifier
+ * @f: pointer to the correct printing function
  */
-
-typedef struct handleprint
+typedef struct printHandler
 {
 	char c;
-	int (*f)(va_list args, flags_type *flags);
-} printer;
-/* Including my own function prototypes*/
+	int (*f)(va_list ap, flags_t *f);
+} ph;
 int _printf(const char *format, ...);
 int _putchar(char c);
-int _puts(char *s);
-int handle_string(va_list args, flags_t *f);
-int (*print_handler(char cha))(va_list, flags_t *f);
-int handle_int(va_list args, flags_type *f);
-int handle_unsigned(va_list args, flags_t *f);
-int handle_count(int x);
-int handle_hex(va_list args, flags_t *f);
-int handle_big_hex(va_list args, flags_t *f);
-int handle_binary(va_list args, flags_t *f);
-int handle_octal(va_list args, flags_t *f);
-int handle_char(va_list args, flags_t *f);
-int handle_rot13(va_list args, flags_t *f);
-int handle_rev(va_list args, flags_t *f);
-int handle_big_string(va_list args, flags_t *f);
-int handle_address(va_list args, flags_t *f);
-int handle_percent(va_list args, flags_t *f);
-int handle_number(int y);
-int get_flag(char cha, flags_type *f);
-char *converted_str(unsigned long int number, int base, int lowercase);
-
+int _puts(char *str);
+char *converted_str(unsigned long int num, int base, int lowercase);
+int get_flag(char s, flags_t *f);
+int (*print_handler(char s))(va_list, flags_t *);
+int handle_int(va_list l, flags_t *f);
+void handle_number(int n);
+int handle_unsigned(va_list l, flags_t *f);
+int count_digit(int i);
+int handle_hex(va_list l, flags_t *f);
+int handle_hex_big(va_list l, flags_t *f);
+int handle_binary(va_list l, flags_t *f);
+int handle_octal(va_list l, flags_t *f);
+int handle_string(va_list l, flags_t *f);
+int handle_char(va_list l, flags_t *f);
+int handle_rot13(va_list l, flags_t *f);
+int handle_rev(va_list l, flags_t *f);
+int handle_bigS(va_list l, flags_t *f);
+int handle_address(va_list l, flags_t *f);
+int handle_percent(va_list l, flags_t *f);
 #endif
